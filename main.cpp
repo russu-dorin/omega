@@ -1,18 +1,16 @@
-/*-------------------------------------------------
-   CHECKER1.C -- Mouse Hit-Test Demo Program No. 1
-                 (c) Charles Petzold, 1998
-  -------------------------------------------------*/
-
 #include <windows.h>
+#include "resource.h"
 
 #define DIVISIONS 3
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM) ;
 
-int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                    PSTR  szCmdLine, int iCmdShow)
+int WINAPI WinMain (HINSTANCE hInstance, 
+                    HINSTANCE hPrevInstance,
+                    PSTR  szCmdLine,
+                    int iCmdShow)
 {
-     static TCHAR szAppName[] = TEXT ("Checker1") ;
+     static TCHAR szAppName[] = TEXT ("Tic Tac Toe for FAF nerds") ;
      HWND         hwnd ;
      MSG          msg ;
      WNDCLASS     wndclass ;
@@ -22,7 +20,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
      wndclass.cbClsExtra    = 0 ;
      wndclass.cbWndExtra    = 0 ;
      wndclass.hInstance     = hInstance ;
-     wndclass.hIcon         = LoadIcon (NULL, IDI_APPLICATION) ;
+     wndclass.hIcon         = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON));
      wndclass.hCursor       = LoadCursor (NULL, IDC_ARROW) ;
      wndclass.hbrBackground = (HBRUSH) GetStockObject (WHITE_BRUSH) ;
      wndclass.lpszMenuName  = NULL ;
@@ -30,12 +28,14 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
      if (!RegisterClass (&wndclass))
      {
-          MessageBox (NULL, TEXT ("Program requires Windows NT!"),
-                      szAppName, MB_ICONERROR) ;
+          MessageBox (NULL, 
+                      TEXT ("Program requires Windows NT!"),
+                      szAppName, 
+                      MB_ICONERROR) ;
           return 0 ;
      }
 
-     hwnd = CreateWindow (szAppName, TEXT ("Checker1 Mouse Hit-Test Demo"),
+     hwnd = CreateWindow (szAppName, TEXT ("Tic Tac Toe"),
                           WS_OVERLAPPEDWINDOW,
                           CW_USEDEFAULT, CW_USEDEFAULT,
                           CW_USEDEFAULT, CW_USEDEFAULT,

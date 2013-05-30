@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1369906950 source:d:\dimon\my documents\faf 111\semester 4\wp\git-labs\checker1\main.cpp
+	<windows.h>
+
+1369907716 source:d:\github\omega\main.cpp
+	<windows.h>
+	"resource.h"
+
+1369906080 d:\github\omega\resource.h
+
+1369907644 source:d:\github\omega\resource.rc
+	"resource.h"
+
